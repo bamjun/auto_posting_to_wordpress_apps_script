@@ -85,25 +85,29 @@ function fixJsonString(jsonString) {
 }
 
 
-function docsClearAddText(contentText) {
-  var docId = test_doc_id; // 문서 ID 입력
+
+function docsClearAddText({contentText = "contentText=text", docId = test_doc_id}) {
   var doc = DocumentApp.openById(docId);
   var body = doc.getBody();
   body.clear()
   body.appendParagraph(contentText);
+  doc_page_url = `https://docs.google.com/document/${docId}/edit`
+  Logger.log(`doc_page_url : ${doc_page_url}`)
 }
 
 
-function docsClearText() {
-  var docId = test_doc_id; // 문서 ID 입력
+function docsClearText(docId = test_doc_id) {
   var doc = DocumentApp.openById(docId);
   var body = doc.getBody();
   body.clear()
+  doc_page_url = `https://docs.google.com/document/${docId}/edit`
+  Logger.log(`doc_page_url : ${doc_page_url}`)
 }
 
-function docsAddText(contentText) {
-  var docId = test_doc_id; // 문서 ID 입력
+function docsAddText({contentText = "contentText=text", docId = test_doc_id}) {
   var doc = DocumentApp.openById(docId);
   var body = doc.getBody();
   body.appendParagraph(contentText);
+  doc_page_url = `https://docs.google.com/document/${docId}/edit`
+  Logger.log(`doc_page_url : ${doc_page_url}`)
 }

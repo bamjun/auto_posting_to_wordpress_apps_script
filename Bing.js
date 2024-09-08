@@ -3,7 +3,7 @@
 function bingTest1() {
 
   
-  docsClearAddText(searchBing())
+  docsClearAddText({contentText: searchBing()})
 }
 
 

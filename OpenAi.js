@@ -17,7 +17,7 @@ function getPost(askGPT) {
   gptResponse = gptJson(toss)
   gptcontent = JSON.parse(gptResponse.choices[0].message.content)
   toss.push({ "role": gptResponse.choices[0].message.role, "content": '{"title":"' + gptcontent.title + '", "content":"' + gptcontent.content + '"}' })
-  // docsClearAddText(JSON.stringify(toss))
+  // docsClearAddText({contentText: JSON.stringify(toss)})
   return toss
 }
 
@@ -37,7 +37,7 @@ function getPostEnglish(askGPT) {
   gptResponse = gptJson(toss)
   gptcontent = JSON.parse(gptResponse.choices[0].message.content)
   toss.push({ "role": gptResponse.choices[0].message.role, "content": '{"title":"' + gptcontent.title + '", "content":"' + gptcontent.content + '"}' })
-  // docsClearAddText(JSON.stringify(toss))
+  // docsClearAddText({contentText: JSON.stringify(toss)})
   return toss
 }
 

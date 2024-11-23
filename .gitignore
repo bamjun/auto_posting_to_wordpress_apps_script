@@ -1,7 +1,7 @@
 ### Config file ###
 ConfigKeys.js
 
-
+memos_local/
 ### clasp config ###
 .clasp.json
 appsscript.json

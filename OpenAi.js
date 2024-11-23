@@ -49,7 +49,7 @@ function gptJson(messages) {
     'Authorization': 'Bearer ' + openaiApiKey
   };
   var data = {
-    'model': 'gpt-3.5-turbo-1106',
+    'model': 'gpt-4o-mini',
     'temperature': 1,
     'response_format': { 'type': 'json_object' },
     'messages': messages,

@@ -3,7 +3,7 @@ function aimlgptJson(messages) {
   var url = 'https://api.aimlapi.com/chat/completions';
   var headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + 'key'
+    'Authorization': 'Bearer ' + '9990e2152988482e8bf54690266c4f16'
   };
   var data = {
     'model': 'text',
@@ -35,7 +35,7 @@ function callOpenAI() {
   var apiUrl = "https://api.aimlapi.com/chat/completions";
 
   // OpenAI API 키
-  var apiKey = "key"; // 여기에 OpenAI API 키를 입력하세요.
+  var apiKey = "9990e2152988482e8bf54690266c4f16"; // 여기에 OpenAI API 키를 입력하세요.
 
   // 요청에 필요한 메시지 데이터
   var requestData = {

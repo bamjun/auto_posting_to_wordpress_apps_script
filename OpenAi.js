@@ -65,15 +65,22 @@ function gptJson(messages) {
 }
 
 
+function getJosnSinglePost(askGPT) {
+  // askGPT = "쏘카 배달되는 시간??,아침시간에 서울에서 쏘카예약하면 집앞까지 차 가져다 주는데 통상 얼마나 걸리나요?? <div><br>"
+  var toss = [{ "role": "system", "content": "You are a helpful assistant designed to output JSON." }, { "role": "system", "content": "You are a writer who writes the answer to a question in Korean like a news article when asked. respons JSON FORM must be {'title':'title', 'content':'your answer'}" }]
+  toss.push({ "role": "user", "content": askGPT + "에 대해 자세히 알려줘" })
+  var gptResponse = gptJson(toss)
+  return JSON.parse(cleanJsonString(gptResponse.choices[0].message.content));
+}
 
 
 
-
-
-
-
-
-
+function getJosnForList(messages) {
+  var toss = [{ "role": "system", "content": "You are a helpful assistant designed to output JSON." }, { "role": "system", "content": "You are a writer who writes the answer to a question in Korean. respons JSON FORM must be ['answer1':'answer1', 'answer2':'answer2', 'answer3':'answer3', 'answer4':'answer4', 'answer5':'answer5', 'answer6':'answer6', 'answer7':'answer7', 'answer8':'answer8', 'answer9':'answer9', 'answer10':'answer10']" }]
+  toss.push({ "role": "user", "content": messages })
+  var gptResponse = gptJson(toss)
+  return JSON.parse(cleanJsonString(gptResponse.choices[0].message.content));
+}
 
 
 
@@ -97,7 +104,7 @@ function openaiGpt(contentText1) {
   };
   var data = {
     // 'model': 'gpt-4',
-    'model': 'gpt-3.5-turbo-0301',
+    'model': 'gpt-4o-mini',
     'temperature': 1,
     // 'messages': [{"role": "user", "content": "다음 내용 참조해서, 삼성전자에 대한 장문의 리포터 써줘"}, {"role": "user", "content": searchNewsBing()}],
     // 'messages': [{"role": "user", "content": "다음 내용 참조해서, 삼성전자 주가 이미지를 만들수 있는 10자 이내의 문장 만들어줘"}, {"role": "user", "content": searchNewsBing()}],

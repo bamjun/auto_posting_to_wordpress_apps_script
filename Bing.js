@@ -1,3 +1,6 @@
+function bing_test_1() {
+  Logger.log(GAS_UTILS.HELP)
+}
 
 
 function bingTest1() {

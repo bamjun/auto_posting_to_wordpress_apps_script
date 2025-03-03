@@ -1,3 +1,21 @@
+// 1. `get_text_from_url()`
+//    - URL에서 텍스트를 가져오는 함수
+//    - 'EUC-KR' 인코딩으로 HTML 소스를 가져옴
+
+// 2. `cleanJsonString(jsonString)`
+//    - JSON 문자열을 정리하는 유틸리티 함수
+//    - 줄바꿈, 탭, 백슬래시 등을 제거
+
+// 3. `createKinnaverWordpress_20241123()`
+//    - Google Trends의 첫 번째 아이템을 가져와 워드프레스 포스트 생성
+//    - 10가지 주제를 생성하고 포스트 내용 구성
+//    - HTML 형식으로 콘텐츠 구성 후 워드프레스에 게시
+
+// 4. `createKinnaverWordpress_20241123_10()`
+//    - Google Trends의 다섯 번째 아이템을 가져와 워드프레스 포스트 생성
+//    - 위 함수와 동일한 로직이지만 다른 인덱스의 트렌드 아이템 사용
+//    - HTML 형식으로 콘텐츠 구성 후 워드프레스에 게시
+
 function get_text_from_url() {
   var url = 'https://tr.game.onstove.com/news/update.asp'; // URL을 원하는 주소로 변경하세요.
   var response = UrlFetchApp.fetch(url);
@@ -8,6 +26,7 @@ function get_text_from_url() {
   return ''
 }
 
+
 // JSON 데이터 파싱 전 텍스트 클린업 함수
 function cleanJsonString(jsonString) {
   return jsonString
@@ -17,8 +36,9 @@ function cleanJsonString(jsonString) {
     .replace(/\\/g, ""); // 백슬래시 제거
 }
 
+
 function createKinnaverWordpress_20241123() {
-  var kinNvaerContext = fetchGoogleTrendsItems()[0];
+  var kinNvaerContext = fetchGoogleTrendsItems()[5];
 
   // var kinNvaerContext = getContentKinNaverNoImage();
   if (0 === kinNvaerContext) {
@@ -66,10 +86,16 @@ function createKinnaverWordpress_20241123() {
     status: 'publish',
     help: false
   })
+
 }
 
+
+
+
+
+
 function createKinnaverWordpress_20241123_10() {
-  var kinNvaerContext = fetchGoogleTrendsItems()[4];  // 5번째 아이템 (인덱스 4)
+  var kinNvaerContext = fetchGoogleTrendsItems()[5];
 
   // var kinNvaerContext = getContentKinNaverNoImage();
   if (0 === kinNvaerContext) {
@@ -117,4 +143,5 @@ function createKinnaverWordpress_20241123_10() {
     status: 'publish',
     help: false
   })
-} 
+
+}
